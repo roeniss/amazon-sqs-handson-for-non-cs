@@ -6,7 +6,7 @@ var cron = require("node-cron");
 var fs = require("fs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
@@ -21,7 +21,7 @@ let registerd = false;
 app.use(function(req, res, next) {
   if (req.url === "/registerIAM") {
     fs.writeFileSync(
-      "./config.json",
+      __dirname + "/config.json",
       `{
         "accessKeyId": "${req.body.accessKey}",
         "secretAccessKey": "${req.body.secretAccessKey}",
