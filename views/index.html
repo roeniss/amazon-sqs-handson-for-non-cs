@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>🔥 주문 큐 시스템을 체험해보자! 🔥</title>
+  </head>
+  <body>
+    <table class="container">
+      <tr class="header border-bottom">
+        <th colspan="3">🔥 주문 큐 시스템을 체험해보자! 🔥</th>
+      </tr>
+      <tr class="header">
+        <th><div class="btn">주문 요청 현황</div></th>
+        <th><div class="btn">큐 (SQS) 현황</div></th>
+        <th><div class="btn">주문 수락 현황</div></th>
+      </tr>
+      <tr class="content">
+        <td class="border-right">
+          <div class="btn clickable" id="req1">1건 주문 요청</div>
+        </td>
+        <td> <div class="inline">큐에 입력된 데이터 : </div> <div class="inline" id="queue_size"> 0</div> </td>
+        <td class="border-left">
+          <div class="btn clickable" id="rec1">1건 주문 수락</div>
+        </td>
+      </tr>
+      <tr class="content">
+        <td class="border-right">
+          <div class="btn clickable" id="req10">10건 주문 요청</div>
+        </td>
+        <td>
+          <div class="btn clickable" id="purge">전체 큐 삭제</div>
+        </td>
+        <td class="border-left">
+          <div class="btn clickable" id="rec10">10건 주문 (한번에) 수락</div>
+        </td>
+      </tr>
+      <tr class="content">
+        <td class="border-right">
+          <div class="btn clickable" id="req50">50건 주문 요청</div>
+        </td>
+        <td>
+          <div class="btn clickable" id="resetLog">주문 접수 기록 초기화</div>
+        </td>
+        <td class="border-left">
+          <div class="btn clickable" id="rec50">50건 주문 (한번에) 수락</div>
+        </td>
+      </tr>
+      <tr class="content">
+        <td class="border-right">
+          <div class="btn clickable" id="reqEndless">무한 주문 요청 (1초당 10건)</div>
+        </td>
+        <td rowspan="2" class="border-top">
+          <textarea id="log"></textarea>
+        </td>
+        <td class="border-left">
+          <div class="btn clickable" id="recEndless">무한 주문 수락 (1건씩)</div>
+        </td>
+      </tr>
+      <tr class="content">
+        <td class="border-right border-bottom">
+          <input class="special-order" type="text" size="30" placeholder="주문할 음식 이름을 적어주세요" id="specialOrderInput" />
+          <br />
+          <div class="btn clickable" id="reqSpecial">스페셜 주문 요청</div>
+        </td>
+        <!-- <td></td> -->
+        <td class="border-left border-bottom">
+          <input class="special-order" type="text" size="30" placeholder="SQS queueUrl" id="queueUrl" value="https://sqs.us-east-1.amazonaws.com/978567334665/myQueue.fifo" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          <i>created at 2020.02</i> <br />
+          <i>made by AUSG 3rd Generation</i>
+          <!-- <input class="special-order" type="text" size="30" placeholder="IAM accessKey" id="accessKey" value="AKIA6HVZIRME74EVLKDP" />
+          <input class="special-order" type="text" size="30" placeholder="IAM secretAccessKey" id="secretAccessKey" value="sevYZRdwi1p2PnURKgz3CpGEvzolz4/9i6n2FDus" /> -->
+        </td>
+      </tr>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+body {
+  margin: 0;
+  background: url("./bg.jpg");
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+}
+
+table {
+  border: 0;
+  border-style: hidden;
+  table-layout: fixed;
+}
+table,
+tr,
+th td {
+  border-collapse: collapse;
+  font-weight: bold;
+}
+table,
+table * {
+  box-sizing: content-box;
+}
+
+tr:nth-child(3) {
+  border-top: 3px black solid;
+}
+
+.header:nth-of-type(1),
+tr:last-child td {
+  height: 50px;
+  max-height: 100px;
+  background-color: white;
+}
+.header:nth-of-type(2) {
+  height: 100px;
+  max-height: 150px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 10px 8px 10px;
+  border: 2px black solid;
+  border-radius: 10px;
+  background-color: white;
+}
+
+tr.content,
+td {
+  text-align: center;
+}
+
+.clickable {
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 2px black solid;
+  background-color: white !important;
+  cursor: pointer;
+}
+.clickable:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+input.special-order {
+  margin: 20px;
+}
+
+div.inline {
+  display: inline-block;
+}
+.border-right {
+  border-right: 3px black solid;
+}
+.border-left {
+  border-left: 3px black solid;
+}
+.border-top {
+  border-top: 3px black solid;
+}
+.border-bottom {
+  border-bottom: 3px black solid;
+}
+.border-all {
+  border: 3px black solid;
+}
+#log {
+  width: 90%;
+  height: 90%;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.disabled {
+  background-color: gray !important;
+}
+.disabled:hover {
+  background-color: gray !important;
+}
