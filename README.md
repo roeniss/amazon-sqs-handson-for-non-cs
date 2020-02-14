@@ -1,4 +1,4 @@
-# amazon-sqs-handson-for-non-cs
+# Amazon SQS HandsOn for Non-CS
 
 ## HOW TO USE
 
