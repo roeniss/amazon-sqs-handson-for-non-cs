@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" type="text/css" href="./index.css" />
     <title>🔥 주문 큐 시스템을 체험해보자! 🔥</title>
   </head>
   <body>
@@ -67,14 +67,15 @@
         </td>
         <!-- <td></td> -->
         <td class="border-left border-bottom">
-          <input class="special-order" type="text" size="30" placeholder="SQS queueUrl" id="queueUrl" value="https://sqs.us-east-1.amazonaws.com/978567334665/myQueue.fifo" />
+          <i style="font-weight: normal;">먼저 아래 항목을 채워주세요.</i>
         </td>
       </tr>
       <tr>
         <td colspan="3" class="iamTab border-bottom">
-          <input class="special-order" type="text" size="30" placeholder="Access Key" id="accessKey" value="AKIA6HVZIRMESG6OCKX6" />
-          <input class="special-order" type="text" size="30" placeholder="Secret Access Key" id="secretAccessKey" value="f3GPB+4PDTR3uPOyPHje1HJKrHRoOuP356NxNjS3" />
-          <div class="btn clickable" id="registerIAM">IAM 등록</div>
+          <input class="special-order" type="text" size="30" placeholder="Access Key" id="accessKey" value="" />
+          <input class="special-order" type="text" size="30" placeholder="Secret Access Key" id="secretAccessKey" value="" />
+          <input class="special-order" type="text" size="30" placeholder="SQS queueUrl" id="queueUrl" value="" />
+          <div class="btn clickable" id="registerIAM">IAM & Queue URL 등록</div>
         </td>
       </tr>
       <tr>
