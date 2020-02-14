@@ -45,7 +45,9 @@ tr:last-child td {
   border-radius: 10px;
   background-color: white;
 }
-
+.iamTab {
+  height: 40px;
+}
 tr.content,
 td {
   text-align: center;

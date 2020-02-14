@@ -250,3 +250,25 @@ document.querySelector("#purge").addEventListener("click", function() {
   };
   $.ajax(makeAjaxParams("./purge", { QueueUrl: getQueueUrl() }, success, errorAlert));
 });
+
+document.querySelector("#registerIAM").addEventListener("click", function() {
+  if (!btnAvailable) return;
+  btnAvailable = false;
+  console.log("register");
+  switchOff(this);
+  const success = () => {
+    btnAvailable = true;
+    switchOn(this);
+  };
+  $.ajax(
+    makeAjaxParams(
+      "./registerIAM",
+      {
+        accessKey: document.querySelector("#accessKey").value,
+        secretAccessKey: document.querySelector("#secretAccessKey").value
+      },
+      success,
+      errorAlert
+    )
+  );
+});

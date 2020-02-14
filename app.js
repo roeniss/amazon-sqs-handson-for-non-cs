@@ -3,9 +3,9 @@ var app = express();
 var aws = require("aws-sdk");
 var bodyParser = require("body-parser");
 var cron = require("node-cron");
+var fs = require("fs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
-aws.config.loadFromPath(__dirname + "/config.json");
 app.use(express.static("public"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
@@ -13,9 +13,30 @@ app.engine("html", require("ejs").renderFile);
 
 const { uuid } = require("uuidv4");
 
-const sqs = new aws.SQS();
+let sqs;
 
 app.get("/", (req, res) => res.render("index.html"));
+
+let registerd = false;
+app.use(function(req, res, next) {
+  if (req.url === "/registerIAM") {
+    fs.writeFileSync(
+      "./config.json",
+      `{
+        "accessKeyId": "${req.body.accessKey}",
+        "secretAccessKey": "${req.body.secretAccessKey}",
+        "region": "us-east-1"
+      }`
+    );
+    aws.config.loadFromPath(__dirname + "/config.json");
+    sqs = new aws.SQS();
+    registerd = true;
+    return res.json({ status: "good" });
+  } else {
+    if (!registerd) return res.send({ error: "Register IAM first" });
+    else next();
+  }
+});
 
 app.post("/status", function(req, res) {
   const params = req.body;
@@ -122,7 +143,7 @@ app.post("/reqEndlessCancel", function(req, res) {
 });
 
 // Start server.
-var server = app.listen(80, function() {
+var server = app.listen(80, "0.0.0.0", function() {
   var host = server.address().address;
   var port = server.address().port;
 

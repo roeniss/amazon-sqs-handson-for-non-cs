@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": " nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,5 @@
     "node-cron": "^2.0.3",
     "uuidv4": "^6.0.2"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.2"
-  }
+  "devDependencies": {}
 }
