@@ -1,0 +1,13 @@
+[Unit]
+Description=tutorial app for sqs and queue system
+Documentation=https://github.com/roeniss/amazon-sqs-handson-for-non-cs
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/node /home/ubuntu/amazon/amazon-sqs-handson-for-non-cs/app.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
